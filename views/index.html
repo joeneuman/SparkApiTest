@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Spark API Cosumer</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
+<script>
+$(document).ready(function(){
+	var email,pass;
+	$("#submit").click(function(){
+		email=$("#email").val();
+		pass=$("#password").val();
+		/*
+		* Perform some validation here.
+		*/
+		$.post("http://localhost:3000/login",{email:email,pass:pass},function(data){		
+			if(data==='done')			
+			{
+				window.location.href="/home";
+			}
+		});
+	});
+});
+</script>
+</head>
+<body>
+	<div class="container" style="padding-top: 10%; width: 50%">
+		<div class="form-group">
+
+
+<input class="form-control" type="text" size="40" placeholder="Type your email" id="email"><br />
+<input class="form-control" type="password" size="40" placeholder="Type your password" id="password"><br />
+<input class="btn btn-primary" type="button" value="Submit" id="submit">
+</div>
+</div>
+</body>
+</html>
